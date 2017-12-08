@@ -28,11 +28,15 @@ export default {
     canvas.width = width;
     canvas.height = height;
     const meteorGenerator = ()=> {
-      //x位置偏移，以免经过月亮
-      let x = Math.random() * width + 800
-      meteors.push(new Meteor(ctx, x, height))
       //每隔随机时间，生成新流星
       setTimeout(()=> {
+        if (meteors.length > 3) {
+          meteorGenerator()
+          return
+        }
+        //x位置偏移，以免经过月亮
+        let x = Math.random() * width + 800
+        meteors.push(new Meteor(ctx, x, height))
         meteorGenerator()
       }, Math.random() * 2000)
     }
