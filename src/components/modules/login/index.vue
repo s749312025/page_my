@@ -3,15 +3,15 @@
     <canvas id="canvas" class="canvas"></canvas>
     <div id="logo">
       <div class="login-box">
-        <div class="logo">HR EDU</div>
-        <form>
+        <div class="logo">SHENG CHAO</div>
+        <!-- <form> -->
           <div class="ipunt-wrap">
             <label for="username" class="icon-user"></label>
-            <input type="text" id="username" placeholder="用户名" v-model="username">
+            <input type="text" id="username" placeholder="用户名" v-model="username" autocomplete="new-password">
           </div>
           <div class="ipunt-wrap">
             <label for="password" class="icon-password"></label>
-            <input type="password" id="password" placeholder="密码" v-model="password">
+            <input type="password" id="password" placeholder="密码" v-model="password" autocomplete="new-password">
           </div>
           <div class="button">
             <a class="gv" href="javascript:;" @click="login">登录</a>
@@ -19,7 +19,7 @@
           <div class="toregist" v-show="customer">
             还没有账号？<router-link to="/regist"><a href="javascript:;">去注册</a></router-link>
           </div>
-        </form>
+        <!-- </form> -->
       </div>
     </div>
     <div class="icon-moon"></div>

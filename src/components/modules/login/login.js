@@ -1,6 +1,8 @@
 import Stars from '@/assets/lib/sp_effects/Star'
 import Moon from '@/assets/lib/sp_effects/Moon'
 import Meteor from '@/assets/lib/sp_effects/Meteor'
+import api from '@/config/api'
+import router from '@/router/index'
 
 export default {
   data() {
@@ -12,7 +14,15 @@ export default {
   },
   methods: {
     login: function () {
-
+      api.login({
+        username: this.username,
+        password: this.password
+      })
+      .then((respones) => {
+        if(respones.status === 'success') {
+          router.push('/managerList')
+        }
+      })
     }
   },
   mounted() {
