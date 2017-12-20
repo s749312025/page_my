@@ -4,7 +4,7 @@ export default {
     return {
       a: 'tit',
       type: 'all',
-      articleList: []
+      articleList: [],
     }
   },
   created: function() {
@@ -29,7 +29,7 @@ export default {
         })
     },
     pushDetails: function(data) {
-      this.$router.push('/article/details/' + data._id)
+      this.$router.push({name:'详情', params: {...data}})
     }
   }
 }

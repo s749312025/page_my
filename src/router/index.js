@@ -36,7 +36,7 @@ export default new Router({
           component: article,
           children: [
             {
-              path: '/article/details/:id',
+              path: '/article/details/:_id',
               name: '详情',
               component: articleDetails
             }

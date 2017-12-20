@@ -24,6 +24,12 @@
   .article_items {
     background-color: #f2f4f6;
     padding: 25px 15px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
     .item {
       margin-bottom: 20px;
       padding: 20px 15px;
@@ -54,5 +60,14 @@
         line-height: 22px;
       }
     }
+  }
+  .details {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #f2f4f6;
+    overflow: auto;
   }
 </style>
