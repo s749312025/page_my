@@ -1,5 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
+import { Message } from 'element-ui';
 
 axios.defaults.timeout = 5000;
 axios.defaults.headers.post['data-Type'] = 'json';
@@ -13,7 +14,6 @@ axios.interceptors.request.use((config) => {
   if(config.method  === 'post'){
     //config.data = qs.stringify(config.data);
   }
-  console.log(config)
   return config;
 },(error) =>{
   _.toast("错误的传参", 'fail');
@@ -23,6 +23,9 @@ axios.interceptors.request.use((config) => {
 //返回状态判断
 axios.interceptors.response.use((res) =>{
   if(res.status !== 200){
+    return Promise.reject(res);
+  }else if(res.data.status === 'error') {
+    Message.error(res.data.data);
     return Promise.reject(res);
   }
   return res;

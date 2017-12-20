@@ -1,8 +1,13 @@
 html,body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset;
   -webkit-text-fill-color: #333;
+}
+
+#app {
+  height: 100%;
 }

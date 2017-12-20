@@ -9,7 +9,7 @@ import {modules, common} from '@/components/'
 
 const login = r => require.ensure([], () => r(modules.login), 'login')
 const mainFrame = r => require.ensure([], () => r(modules.mainFrame), 'mainFrame')
-const managerList = r => require.ensure([], () => r(modules.managerList), 'home')
+const article = r => require.ensure([], () => r(modules.article), 'home')
 
 export default new Router({
   routes: [
@@ -30,9 +30,9 @@ export default new Router({
       component: mainFrame,
       children:[
         {
-          path: '/managerList',
-          name: '管理员列表',
-          component: managerList
+          path: '/article/:type',
+          name: '文章列表',
+          component: article
         }
       ]
     }

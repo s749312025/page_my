@@ -20,7 +20,7 @@ export default {
       })
       .then((respones) => {
         if(respones.status === 'success') {
-          router.push('/managerList')
+          router.push('/article/all')
         }
       })
     }

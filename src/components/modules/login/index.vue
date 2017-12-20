@@ -11,7 +11,7 @@
           </div>
           <div class="ipunt-wrap">
             <label for="password" class="icon-password"></label>
-            <input type="password" id="password" placeholder="密码" v-model="password" autocomplete="new-password">
+            <input type="password" id="password" placeholder="密码" v-model="password" autocomplete="new-password" @keyup.enter="login">
           </div>
           <div class="button">
             <a class="gv" href="javascript:;" @click="login">登录</a>
