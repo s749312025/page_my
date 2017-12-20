@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="article_items">
-      <div class="item" v-for="article in articleList">
+      <div class="item" v-for="article in articleList" @click="pushDetails(article)">
         <div class="head">{{article.title}}</div>
           <div class="attr">
             <i class="el-icon-edit"></i>
@@ -12,6 +12,7 @@
         <div class="content">{{article.content}}</div>
       </div>
     </div>
+    <router-view class="details"></router-view>
   </div>
 </template>
 

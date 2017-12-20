@@ -2,6 +2,7 @@
   <div class="siderbar">
     <el-menu
       class="el-menu-vertical-demo"
+      :default-active="activeIndex"
       @open="handleOpen"
       @close="handleClose"
       background-color="#545c64"
@@ -9,9 +10,9 @@
       :router="true"
       text-color="#fff"
       active-text-color="#ffd04b">
-      <div class="avt-block">
-        <router-link to="/article/all"><img src="../../../assets/image/avtor.jpeg" class="avt" alt=""></router-link>
-      </div>
+      <el-menu-item index="/article/all" class="avt-block">
+        <img @click="pushHome" src="../../../assets/image/avtor.jpeg" class="avt" alt="">
+      </el-menu-item>
       
       <Logo class="logo"/>
       <el-submenu index="1">
@@ -43,10 +44,14 @@
   export default {
     data() {
       return {
-        open: ["1"]
+        open: ["1"],
+        activeIndex: '/article/all'
       }
     },
     methods: {
+      pushHome() {
+        console.log(this.activeIndex)
+      },
       handleOpen(key, keyPath) {
         console.log(key, keyPath);
       },
@@ -67,8 +72,11 @@
   bottom: 0;
   width: 200px;
   .avt-block {
-    margin: 50px 0 20px;
+    margin: 50px 0;
     text-align: center;
+    &:hover {
+      background-color: #545c64!important;
+    }
   }
   .avt {
     width: 85px;
