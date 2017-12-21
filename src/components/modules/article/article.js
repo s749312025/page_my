@@ -1,4 +1,5 @@
 import api from '@/config/api'
+import moment from 'moment'
 export default {
   data() {
     return {
@@ -24,6 +25,7 @@ export default {
         .then(response => {
           for (let i = 0; i < response.data.length; i++) {
             response.data[i].tags = response.data[i].tags.join(',')
+            response.data[i].created = moment(response.data[i].created).format('YYYY-MM-DD HH:mm:ss');  
           }
           this.articleList = response.data;
         })

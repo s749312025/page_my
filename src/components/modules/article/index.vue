@@ -22,7 +22,7 @@
 
 <style lang="scss" scoped>
   .article_items {
-    background-color: #f2f4f6;
+    background-color: $default_bg;
     padding: 25px 15px;
     position: absolute;
     left: 0;
@@ -67,7 +67,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: #f2f4f6;
+    background: $default_bg;
     overflow: auto;
   }
 </style>

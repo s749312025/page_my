@@ -3,4 +3,5 @@ module.exports = {
   mainFrame: require('./mainFrame/'),
   article: require('./article/'),
   articleDetails: require('./articleDetails/'),
+  articleAdd: require('./articleAdd/'),
 };

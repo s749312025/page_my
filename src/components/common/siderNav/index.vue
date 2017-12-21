@@ -65,6 +65,9 @@
   }
 </script>
 <style lang="scss" scoped>
+* {
+  box-sizing: content-box;
+}
 .siderbar {
   position: fixed!important;
   top: 0;

@@ -11,6 +11,7 @@ const login = r => require.ensure([], () => r(modules.login), 'login')
 const mainFrame = r => require.ensure([], () => r(modules.mainFrame), 'mainFrame')
 const article = r => require.ensure([], () => r(modules.article), 'article')
 const articleDetails = r => require.ensure([], () => r(modules.articleDetails), 'articleDetails')
+const articleAdd = r => require.ensure([], () => r(modules.articleAdd), 'articleAdd')
 
 export default new Router({
   routes: [
@@ -30,6 +31,11 @@ export default new Router({
       name: '首页',
       component: mainFrame,
       children:[
+        {
+          path: '/article/add',
+          name: '文章添加',
+          component: articleAdd
+        },
         {
           path: '/article/:type',
           name: '文章列表',

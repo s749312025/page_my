@@ -22,7 +22,7 @@
   }
   .content {
     position: absolute;
-    background-color: #f2f4f6;
+    background-color: $default_bg;
     top: 60px;
     left: 200px;
     bottom: 0;
