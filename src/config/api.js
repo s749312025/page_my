@@ -78,4 +78,7 @@ export default {
   articleUpdate(params) {
     return fetch('/api/article/update', params)
   },
+  getToken(params) {
+    return fetch('/api/token/getToken', params)
+  }
 }
