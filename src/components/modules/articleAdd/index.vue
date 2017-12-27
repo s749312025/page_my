@@ -5,12 +5,23 @@
         <template slot="prepend">标题</template>
       </el-input>
       <el-button type="info" @click="submit">提交</el-button>
+      <el-button type="info" @click="$refs.uploadModal.open()">上传文件</el-button>
+      <UploadDialog ref="uploadModal" />
+    </div>
+    <div class="check-group">
+      <el-checkbox-group v-model="checkList">
+        <el-checkbox label="web">web</el-checkbox>
+        <el-checkbox label="nodejs">nodejs</el-checkbox>
+        <el-checkbox label="server">服务器</el-checkbox>
+        <el-checkbox label="resource">资源</el-checkbox>
+        <el-checkbox label="share">转载</el-checkbox>
+      </el-checkbox-group>
     </div>
     <div class="article-add">
       <textarea
       class="input"
       v-model="textarea"
-      placeholder="请输入内容">
+      placeholder="请输入内容 (Markdown语法)">
       </textarea>
       <Markdown class="show" :source="textarea" />
     </div>
@@ -19,24 +30,30 @@
 
 <script>
   import Markdown from '@/components/common/markdown/'
+  import UploadDialog from './uploadModal'
+  import api from '@/config/api'
   export default {
     data() {
       return {
         title: '',
-        textarea: ''
+        textarea: '',
+        checkList: []
       }
     },
     methods: {
-      submit() {
+      async submit() {
         let params = {
           title: this.title,
-          content: this.textarea
+          content: this.textarea,
+          tags: this.checkList.join()
         }
-        console.log(params)
-      }
+        let res = await api.articleAdd(params)
+        console.log(res)
+      },
     },
     components: {
-      Markdown
+      Markdown,
+      UploadDialog
     }
   }
 </script>
@@ -47,9 +64,13 @@
     margin-left: 10px;
     width: 75%;
   }
+  .check-group {
+    margin-left: 15px;
+    margin-top: 5px;
+  }
   .article-add {
     position: absolute;
-    top: 60px;
+    top: 80px;
     bottom: 0;
     left: 0;
     right: 0;

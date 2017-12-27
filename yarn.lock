@@ -1179,8 +1179,8 @@ copy-webpack-plugin@^4.0.1:
     node-dir "^0.1.10"
 
 core-js@^2.4.0:
-  version "2.4.1"
-  resolved "http://registry.npm.taobao.org/core-js/download/core-js-2.4.1.tgz#4de911e667b0eae9124e34254b53aea6fc618d3e"
+  version "2.5.3"
+  resolved "http://registry.npm.taobao.org/core-js/download/core-js-2.5.3.tgz#8acc38345824f16d8365b7c9b4259168e8ed603e"
 
 core-util-is@~1.0.0:
   version "1.0.2"
@@ -1512,9 +1512,9 @@ electron-to-chromium@^1.2.7:
   version "1.3.7"
   resolved "http://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.7.tgz#9fb75a2417f28114425d364de118d1cfd681432b"
 
-element-ui@^2.0.8:
-  version "2.0.8"
-  resolved "http://registry.npm.taobao.org/element-ui/download/element-ui-2.0.8.tgz#cee493530a8e7a3c69bb83dc22f252a5b9ce0a11"
+element-ui@2.0.9:
+  version "2.0.9"
+  resolved "http://registry.npm.taobao.org/element-ui/download/element-ui-2.0.9.tgz#d05ddbeeff1c122a0420c50bfa7e1039cb77da57"
   dependencies:
     async-validator "~1.8.1"
     babel-helper-vue-jsx-merge-props "^2.0.0"
@@ -4181,9 +4181,9 @@ vue-style-loader@^2.0.0, vue-style-loader@^2.0.5:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@^2.2.6:
-  version "2.2.6"
-  resolved "http://registry.npm.taobao.org/vue-template-compiler/download/vue-template-compiler-2.2.6.tgz#2e2928daf0cd0feca9dfc35a9729adeae173ec68"
+vue-template-compiler@2.5.2:
+  version "2.5.2"
+  resolved "http://registry.npm.taobao.org/vue-template-compiler/download/vue-template-compiler-2.5.2.tgz#6f198ebc677b8f804315cd33b91e849315ae7177"
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -4192,9 +4192,9 @@ vue-template-es2015-compiler@^1.2.2:
   version "1.5.2"
   resolved "http://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.5.2.tgz#a0a6c50c941d2a4abda963f2f42c337ac450ee95"
 
-vue@^2.2.6:
-  version "2.2.6"
-  resolved "http://registry.npm.taobao.org/vue/download/vue-2.2.6.tgz#451714b394dd6d4eae7b773c40c2034a59621aed"
+vue@2.5.2:
+  version "2.5.2"
+  resolved "http://registry.npm.taobao.org/vue/download/vue-2.5.2.tgz#fd367a87bae7535e47f9dc5c9ec3b496e5feb5a4"
 
 vuex@^2.3.1:
   version "2.3.1"

@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="article_items">
-      <div class="item" v-for="article in articleList" @click="pushDetails(article)">
-        <div class="head">{{article.title}}</div>
+      <div class="item" v-for="article in articleList">
+        <div class="head" @click="pushDetails(article)">{{article.title}}</div>
           <div class="attr">
             <i class="el-icon-edit"></i>
             <span class="tags">标签:  {{article.tags}}</span>
@@ -58,6 +58,7 @@
         font-size: 14px;
         max-height: 66px;
         line-height: 22px;
+        overflow: hidden;
       }
     }
   }

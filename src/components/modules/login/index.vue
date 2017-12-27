@@ -4,7 +4,6 @@
     <div id="logo">
       <div class="login-box">
         <div class="logo">SHENG CHAO</div>
-        <!-- <form> -->
           <div class="ipunt-wrap">
             <label for="username" class="icon-user"></label>
             <input type="text" id="username" placeholder="用户名" v-model="username" autocomplete="new-password">
@@ -19,7 +18,6 @@
           <div class="toregist" v-show="customer">
             还没有账号？<router-link to="/regist"><a href="javascript:;">去注册</a></router-link>
           </div>
-        <!-- </form> -->
       </div>
     </div>
     <div class="icon-moon"></div>
