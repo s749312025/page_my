@@ -59,6 +59,7 @@
         max-height: 66px;
         line-height: 22px;
         overflow: hidden;
+        white-space: pre;
       }
     }
   }

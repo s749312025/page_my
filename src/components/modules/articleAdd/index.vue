@@ -23,7 +23,7 @@
       v-model="textarea"
       placeholder="请输入内容 (Markdown语法)">
       </textarea>
-      <Markdown class="show" :source="textarea" />
+      <Markdown class="show" :isEdit="true" :source="textarea" />
     </div>
   </div>
 </template>

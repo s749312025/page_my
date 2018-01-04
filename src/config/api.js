@@ -16,7 +16,7 @@ axios.interceptors.request.use((config) => {
   }
   return config;
 },(error) =>{
-  _.toast("错误的传参", 'fail');
+  Message.error('错误的传参');
   return Promise.reject(error);
 });
 
@@ -30,7 +30,7 @@ axios.interceptors.response.use((res) =>{
   }
   return res;
 }, (error) => {
-  _.toast("网络异常", 'fail');
+  Message.error('网络异常');
   return Promise.reject(error);
 });
 

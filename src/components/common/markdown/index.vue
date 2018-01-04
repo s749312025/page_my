@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <div v-html="mark"></div>
+  <div id="m_edit">
+    <div v-if="isEdit" class="hover-title">
+      <el-checkbox class="m-check" v-model="isScroll">保持底部</el-checkbox>
+    </div>
+    <div id="pre_content" v-html="mark"></div>
   </div>
 </template>
 
@@ -26,21 +29,50 @@
   export default {
     data() {
       return {
+        isScroll: false,
         mark: this.source
       }
     },
     props: {
-      source: ''
+      source: {
+        type: String,
+        default: ''
+      },
+      isEdit: {
+        type: Boolean,
+        default: false
+      }
+    },
+    created(){
+      this.mark = md.render(this.source)
     },
     watch: {
       source: function(n) {
+        console.log(n)
         this.mark = md.render(n)
+        this.isScroll ? document.getElementById('m_edit').scrollTop = document.getElementById('pre_content').scrollHeight : '';
+      },
+      isScroll: function(n) {
+        n ? document.getElementById('m_edit').scrollTop = document.getElementById('pre_content').scrollHeight : '';
       }
     }
   }
 </script>
 
 <style lang="scss">
+.hover-title {
+  position: fixed;
+  height: 20px;
+  width: 100px;
+  .m-check {
+    display: none;
+  }
+  &:hover  {
+    .m-check {
+      display: inline-block;
+    }
+  }
+}
 pre {
   padding: 0;
   border-width: 0;
