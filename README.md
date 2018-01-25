@@ -1,8 +1,9 @@
-# hr_admin
+# 个人使用的blog前端
+### 使用vue2 + vue-router + webpack + element-ui + axios
+### 后台自搭，采用 koa2 + mongodb [后台代码](https://github.com/s749312025/koa2-mongoDB-api)
 
 > hr
 
-#个人用完美vue的项目模版，脚手架
 
 ## Build Setup
 
@@ -16,8 +17,6 @@ npm run dev
 # build for production with minification
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
 or
@@ -40,6 +39,4 @@ yarn dev
 # build for production with minification
 yarn build
 
-# build for production and view the bundle analyzer report
-yarn build --report
 ```
