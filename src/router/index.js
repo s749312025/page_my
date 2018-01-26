@@ -3,15 +3,17 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-import {modules, common} from '@/components/'
+//import {modules, common} from '@/components/'
 
 //const modules = require('@/components/modules/')
 
-const login = r => require.ensure([], () => r(modules.login), 'login')
-const mainFrame = r => require.ensure([], () => r(modules.mainFrame), 'mainFrame')
-const article = r => require.ensure([], () => r(modules.article), 'article')
-const articleDetails = r => require.ensure([], () => r(modules.articleDetails), 'articleDetails')
-const articleAdd = r => require.ensure([], () => r(modules.articleAdd), 'articleAdd')
+import {login, article, mainFrame, articleDetails, articleAdd} from '@/components/modules'
+
+//const login = r => require.ensure([], () => r(modules.login), 'login')
+// const mainFrame = r => require.ensure([], () => r(modules.mainFrame), 'mainFrame')
+// const article = r => require.ensure([], () => r(modules.article), 'article')
+// const articleDetails = r => require.ensure([], () => r(modules.articleDetails), 'articleDetails')
+// const articleAdd = r => require.ensure([], () => r(modules.articleAdd), 'articleAdd')
 
 export default new Router({
   routes: [

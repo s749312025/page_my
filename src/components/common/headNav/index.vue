@@ -1,15 +1,19 @@
 <template>
   <div class="header">
-    <el-upload
-      class="avatar-uploader"
-      action="http://upload.qiniu.com/"
-      :show-file-list="false"
-      :on-success="handleAvatarSuccess"
-      :data="postData"
-      :before-upload="beforeAvatarUpload">
-      <img v-if="imageUrl" :src="imageUrl" class="avatar">
-      <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-    </el-upload>
+    <el-row :gutter="20">
+      <el-col :span="2" :offset="18">
+        <el-dropdown @command="handleCommand">
+          <span class="el-dropdown-link">
+            <img src="../../../assets/image/avtor.jpeg" class="avt" alt="">
+            <i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="login">退出</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </el-col>
+    </el-row>
+    
   </div>
 </template>
 
@@ -18,65 +22,20 @@
   export default {
     data() {
       return {
-        imageUrl: '',
-        postData: {
-          token: '',
-          key: '11.jpg',
-        }
+        
       }
     },
     created() {
-      api.getToken()
-      .then(res => {
-        this.postData.token = res.data
-      })
+      
     },
     methods: {
-      handleAvatarSuccess(res, file) {
-        this.imageUrl = URL.createObjectURL(file.raw);
-      },
-      beforeAvatarUpload(file) {
-        const isJPG = file.type === 'image/jpeg';
-        const isLt2M = file.size / 1024 / 1024 < 2;
-
-        if (!isJPG) {
-          this.$message.error('上传头像图片只能是 JPG 格式!');
-        }
-        if (!isLt2M) {
-          this.$message.error('上传头像图片大小不能超过 2MB!');
-        }
-        return isJPG && isLt2M;
+      handleCommand(command) {
+        this.$router.push('/login')
       }
+
     }
   }
 </script>
-<style>
-  .avatar-uploader .el-upload {
-    border: 1px dashed #d9d9d9;
-    border-radius: 6px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    width: 100px;
-    height: 60px;
-  }
-  .avatar-uploader .el-upload:hover {
-    border-color: #409EFF;
-  }
-  .avatar-uploader-icon {
-    font-size: 28px;
-    color: #8c939d;
-    width: 178px;
-    height: 178px;
-    line-height: 178px;
-    text-align: center;
-  }
-  .avatar {
-    width: 178px;
-    height: 178px;
-    display: block;
-  }
-</style>
 
 <style lang="scss" scoped>
   .header {
@@ -85,5 +44,27 @@
     border-bottom: 1px solid #ddd;
     border-top: 1px solid #ddd;
     background-color: white;
+    img {
+      margin-top: 5px;
+      width: 40px;
+      height: 40px;
+    }
   }
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,7 +3,7 @@
     <canvas id="canvas" class="canvas"></canvas>
     <div id="logo">
       <div class="login-box">
-        <div class="logo">SHENG CHAO</div>
+        <div class="logo">sheng chao</div>
           <div class="ipunt-wrap">
             <label for="username" class="icon-user"></label>
             <input type="text" id="username" placeholder="用户名" v-model="username" autocomplete="new-password">
