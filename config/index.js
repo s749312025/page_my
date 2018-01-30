@@ -30,8 +30,8 @@ module.exports = {
     proxyTable: {
       '/api': {
         //target: 'http://api.shengchao.me',
-        //target: 'http://shengchao.me:3000',
-        target: 'http://localhost:3000',
+        target: 'http://shengchao.me:3000',
+        // target: 'http://localhost:3000',
         changeOrigin: true,
         pathRewrite: {
           '^/api': '/api'

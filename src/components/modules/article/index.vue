@@ -5,9 +5,9 @@
         <div class="head" @click="pushDetails(article)">{{article.title}}</div>
           <div class="attr">
             <i class="el-icon-edit"></i>
-            <span class="tags">标签:  {{article.tags}}</span>
+            <span class="tags">标签:  {{ article.tags | ArrToStr }}</span>
             <i class="el-icon-date"></i>
-            <span class="tags">创建时间:  {{article.created}}</span>
+            <span class="tags">创建时间:  {{ article.created | time('m') }}</span>
           </div>
         <div class="content">{{article.content}}</div>
       </div>
