@@ -2,7 +2,6 @@
 ### 使用vue2 + vue-router + webpack + element-ui + axios
 ### 后台自搭，采用 koa2 + mongodb [后台代码](https://github.com/s749312025/koa2-mongoDB-api)
 
-> hr
 
 
 ## Build Setup
