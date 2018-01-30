@@ -9,13 +9,14 @@
       <UploadDialog ref="uploadModal" />
     </div>
     <div class="check-group">
-      <el-checkbox-group v-model="checkList">
+      <el-checkbox-group class="checkGroup" v-model="checkList">
         <el-checkbox label="web">web</el-checkbox>
         <el-checkbox label="nodejs">nodejs</el-checkbox>
         <el-checkbox label="server">服务器</el-checkbox>
         <el-checkbox label="resource">资源</el-checkbox>
         <el-checkbox label="share">转载</el-checkbox>
       </el-checkbox-group>
+      <el-button @click="remove" v-if="isEdit" size="mini">删除？</el-button>
     </div>
     <div class="article-add">
       <textarea
@@ -35,9 +36,23 @@
   export default {
     data() {
       return {
+        isEdit: false,
+        id: '',
         title: '',
         textarea: '',
         checkList: []
+      }
+    },
+    created: function() {
+      if(this.$route.params._id) {
+        this.isEdit = true
+        this.id = this.$route.params._id
+        api.articleList({_id: this.id})
+          .then(response => { 
+            this.title = response.data[0].title
+            this.textarea = response.data[0].content
+            this.checkList = response.data[0].tags
+          })
       }
     },
     methods: {
@@ -45,11 +60,36 @@
         let params = {
           title: this.title,
           content: this.textarea,
-          tags: this.checkList.join()
+          tags: this.checkList
         }
-        let res = await api.articleAdd(params)
-        console.log(res)
+        let res = this.isEdit ? await api.articleUpdate({id: this.id, ...params}) 
+        : await api.articleAdd(params)
+        // if(this.isEdit) {
+        //   res = await api.articleUpdate({id: this.id, ...params})
+        // } else {
+        //   res = await api.articleAdd(params)
+        // }
+        if(res.status == 'success') {
+          this.$router.push('/article/all')
+        }
       },
+      remove() {
+        this.$confirm('此操作将永久删除该文章, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() =>{
+          api.articleDelete({id: this.id}).then(res => {
+            if(res.status == 'success') {
+              this.$message({
+                type: 'success',
+                message: '删除成功!'
+              });
+              this.$router.push('/article/all')
+            }
+          })
+        })
+      }
     },
     components: {
       Markdown,
@@ -67,6 +107,10 @@
   .check-group {
     margin-left: 15px;
     margin-top: 5px;
+  }
+  .checkGroup {
+    display: inline-block;
+    margin-right: 15px;
   }
   .article-add {
     position: absolute;

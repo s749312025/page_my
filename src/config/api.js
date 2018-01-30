@@ -78,6 +78,9 @@ export default {
   articleUpdate(params) {
     return fetch('/api/article/update', params)
   },
+  articleDelete(params) {
+    return fetch('/api/article/delete', params)
+  },
   getToken(params) {
     return fetch('/api/token/getToken', params)
   }

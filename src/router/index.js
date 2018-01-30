@@ -39,6 +39,11 @@ export default new Router({
           component: articleAdd
         },
         {
+          path: '/article/update/:_id',
+          name: '文章修改',
+          component: articleAdd
+        },
+        {
           path: '/article/:type',
           name: '文章列表',
           component: article,
