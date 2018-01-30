@@ -1,6 +1,14 @@
 <template>
   <div>
     <div class="article_items">
+      <div class="nodata" v-if="nodata">
+        <el-alert
+          title="错误"
+          type="error"
+          description="暂无此类目文章，请等待更新"
+          show-icon>
+        </el-alert>
+      </div>
       <div class="item" v-for="article in articleList">
         <div class="head" @click="pushDetails(article)">{{article.title}}</div>
           <div class="attr">

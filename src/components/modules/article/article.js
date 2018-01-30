@@ -5,6 +5,7 @@ export default {
       a: 'tit',
       type: 'all',
       articleList: [],
+      nodata: false
     }
   },
   created: function() {
@@ -23,6 +24,11 @@ export default {
       api.articleList({tags, pageIndex: 1, pageSize: 100})
         .then(response => {
           this.articleList = response.data;
+          if(!response.data || response.data.length == 0) {
+            this.nodata = true;
+          }else {
+            this.nodata = false;
+          }
         })
     },
     pushDetails: function(data) {
