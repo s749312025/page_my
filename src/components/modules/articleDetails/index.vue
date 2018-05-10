@@ -33,6 +33,7 @@
     .time, .content {
       max-width: 900px;
       margin: 50px auto;
+      line-height: 1.9;
     }
   }
 </style>
